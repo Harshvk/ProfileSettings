@@ -8,19 +8,12 @@
 
 import UIKit
 
-
 class ListCell : UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
     
     @IBOutlet weak var infoText: UITextField!
-    
-    override func prepareForReuse() {
-        
-        infoText.text = ""
-        
-    }
     
     func configureCell(_ data: [String:String])
     {

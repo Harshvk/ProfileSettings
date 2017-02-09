@@ -4,7 +4,7 @@ class ProfileVC: UIViewController {
     
  
     // Defining of data to be displayed
-    let dataDict : [[String:String]] = [["Title" : "FULL NAME" , "Info" : "John Smith"],
+   var dataDict : [[String:String]] = [["Title" : "FULL NAME" , "Info" : "John Smith"],
                                         ["Title" : "EMAIL" , "Info" : "johnsmith@address.com"],
                                         ["Title" : "PASSWORD" , "Info" : "12345678"],
                                         ["Title" : "BIRTHDAY" , "Info" : "August 26, 1989"],
@@ -29,6 +29,7 @@ class ProfileVC: UIViewController {
         self.settingsTableView.dataSource = self
         self.settingsTableView.delegate = self
         
+        // Registering Nib in TableView
         let nib = UINib(nibName: "ListCell", bundle: nil)
         settingsTableView.register(nib, forCellReuseIdentifier: "ListCellID")
         
@@ -58,6 +59,7 @@ class ProfileVC: UIViewController {
     
     
 
+   
 
    
 }
@@ -101,20 +103,30 @@ extension ProfileVC : UITableViewDataSource,UITableViewDelegate{
         {
             
             
-        case 0 :                return self.view.bounds.height*275/667
+        case 0 :                  return self.view.bounds.height*275/667
           
-        case 1 :                return 90
+        case 1 :                  return 90
             
-        case dataDict.count+1 : return 158
+        case dataDict.count+1 :   return 158
             
             
-        default :               return 71
+        default :                 return 71
+        }
+       
+    }
+  
+        func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath){
+            if ((indexPath.row != 0) && (indexPath.row != dataDict.count+1))
+            {
+                let cell = tableView.cellForRow(at: indexPath) as! ListCell
+                
+                dataDict[indexPath.row-1]["Info"] = cell.infoText.text
+            }
         }
         
-    
+
 }
-}
-//MARK: Heading Cell
+
 class HeadingCell : UITableViewCell {
     
     @IBOutlet weak var profilePic: UIImageView!
@@ -136,11 +148,13 @@ class HeadingCell : UITableViewCell {
     
     }
     
+
+    
 }
     
 
 
-//MARK: SaveChanges Cell
+
 class SaveChangeCell : UITableViewCell {
     @IBOutlet weak var saveBtn: UIButton!
     
