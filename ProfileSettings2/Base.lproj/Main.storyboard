@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DAD-m3-QOP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile Settings-->
+        <scene sceneID="sF8-rX-msK">
+            <objects>
+                <viewController id="DAD-m3-QOP" customClass="ProfileVC" customModule="ProfileSettings2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BFg-Wc-EPr"/>
+                        <viewControllerLayoutGuide type="bottom" id="bBR-HX-jfP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hYe-95-65J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="188" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xIU-3x-4KY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.26247830100000002" green="0.62802910469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="27.5" minY="0.0" maxX="27.5" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeadingCellID" rowHeight="276" id="zvl-TV-vxI" customClass="HeadingCell" customModule="ProfileSettings2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="276"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zvl-TV-vxI" id="4qX-ig-nOu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="johnsmith" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-WV-F7k">
+                                                    <rect key="frame" x="133" y="100" width="108" height="108"/>
+                                                    <color key="backgroundColor" red="1" green="0.80094423969999995" blue="0.46017892589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="108" id="F2n-Ki-sE7"/>
+                                                        <constraint firstAttribute="height" constant="108" id="kOF-ZN-ei3"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsz-p5-mKF">
+                                                    <rect key="frame" x="211" y="100" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="mXH-X0-ALT"/>
+                                                        <constraint firstAttribute="height" constant="30" id="vTm-CY-HL7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="changePPAction:" destination="zvl-TV-vxI" eventType="touchUpInside" id="Dkv-Km-bFq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.26247830100000002" green="0.62802910469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Eeb-WV-F7k" firstAttribute="centerY" secondItem="4qX-ig-nOu" secondAttribute="centerY" constant="16.5" id="8Sz-rK-lkM"/>
+                                                <constraint firstItem="Nsz-p5-mKF" firstAttribute="top" secondItem="Eeb-WV-F7k" secondAttribute="top" id="OpR-Ru-i5a"/>
+                                                <constraint firstItem="Eeb-WV-F7k" firstAttribute="centerX" secondItem="4qX-ig-nOu" secondAttribute="centerX" id="Phg-v5-PGi"/>
+                                                <constraint firstItem="Nsz-p5-mKF" firstAttribute="trailing" secondItem="Eeb-WV-F7k" secondAttribute="trailing" id="e4B-mL-Er4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="changePP" destination="Nsz-p5-mKF" id="8QN-ql-uln"/>
+                                            <outlet property="profilePic" destination="Eeb-WV-F7k" id="VwO-Xh-sRH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SaveChangeID" rowHeight="158" id="aOd-Rq-l6h" customClass="SaveChangeCell" customModule="ProfileSettings2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="158"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aOd-Rq-l6h" id="AwY-jS-V1U">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIk-8f-UA4">
+                                                    <rect key="frame" x="52.5" y="40" width="269" height="51"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="269" id="SBZ-hM-PJQ"/>
+                                                        <constraint firstAttribute="height" constant="51" id="mAg-PQ-9GJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <state key="normal" title="Save Changes">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveBtnAction:" destination="aOd-Rq-l6h" eventType="touchUpInside" id="ByB-59-hUo"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="AIk-8f-UA4" firstAttribute="top" secondItem="aOd-Rq-l6h" secondAttribute="top" constant="40" id="CDo-wC-jaJ"/>
+                                            <constraint firstItem="AIk-8f-UA4" firstAttribute="centerX" secondItem="aOd-Rq-l6h" secondAttribute="centerX" id="ROl-BR-Tx6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="saveBtn" destination="AIk-8f-UA4" id="gvU-Ve-Ka5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="TBA-A1-PdY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="b2j-5h-5tg"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.26247830100000002" green="0.62802910469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Profile Settings" id="fuY-OG-1Lw"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TBA-A1-PdY" firstAttribute="top" secondItem="BFg-Wc-EPr" secondAttribute="bottom" constant="-20" id="3oo-6P-upb"/>
+                            <constraint firstItem="TBA-A1-PdY" firstAttribute="centerX" secondItem="hYe-95-65J" secondAttribute="centerX" id="AW9-A9-bvM"/>
+                            <constraint firstItem="xIU-3x-4KY" firstAttribute="centerY" secondItem="hYe-95-65J" secondAttribute="centerY" id="C0l-sH-eKe"/>
+                            <constraint firstItem="xIU-3x-4KY" firstAttribute="width" secondItem="hYe-95-65J" secondAttribute="width" id="K2F-A2-EVS"/>
+                            <constraint firstItem="xIU-3x-4KY" firstAttribute="height" secondItem="hYe-95-65J" secondAttribute="height" id="VG9-mt-jNf"/>
+                            <constraint firstItem="xIU-3x-4KY" firstAttribute="centerX" secondItem="hYe-95-65J" secondAttribute="centerX" id="Zm9-Yi-qo1"/>
+                            <constraint firstItem="TBA-A1-PdY" firstAttribute="width" secondItem="hYe-95-65J" secondAttribute="width" id="zuH-np-beg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile Settings" id="IJD-Ag-5CQ">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="5IJ-Y8-WCU"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingsTableView" destination="xIU-3x-4KY" id="xdR-Pn-eBa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9DL-XX-Po4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1111.2" y="-37.331334332833585"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="johnsmith" width="108" height="108"/>
+    </resources>
+</document>
