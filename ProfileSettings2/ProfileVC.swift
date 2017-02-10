@@ -3,8 +3,17 @@ import UIKit
 class ProfileVC: UIViewController {
     
  
-    // Defining of data to be displayed
-   var dataDict : [[String:String]] = [["Title" : "FULL NAME" , "Info" : "John Smith"],
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+   
+    
+ 
+    // Make outlet of tableView
+    @IBOutlet weak var settingsTableView: UITableView!
+    
+    
+    
+     // Defining of data to be displayed
+    var dataDict : [[String:String]] = [["Title" : "FULL NAME" , "Info" : "John Smith"],
                                         ["Title" : "EMAIL" , "Info" : "johnsmith@address.com"],
                                         ["Title" : "PASSWORD" , "Info" : "12345678"],
                                         ["Title" : "BIRTHDAY" , "Info" : "August 26, 1989"],
@@ -14,11 +23,7 @@ class ProfileVC: UIViewController {
                                         ["Title" : "PHONE NO" , "Info" : "123456789"],
                                         ["Title" : "BLOOD GROUP" , "Info" : "B+"],
                                         ["Title" : "NATIONALITY" , "Info" : "Indian"]
-                                       ]
-    
- 
-    // Make outlet of tableView
-    @IBOutlet weak var settingsTableView: UITableView!
+    ]
    
     //MARK: View Life Cycle
     
@@ -33,14 +38,6 @@ class ProfileVC: UIViewController {
         let nib = UINib(nibName: "ListCell", bundle: nil)
         settingsTableView.register(nib, forCellReuseIdentifier: "ListCellID")
         
-      
-        // Setting up tapGesture for Hiding keyboard
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        tapgesture.cancelsTouchesInView = true
-        
-        // adding tapGesture to tableView
-        settingsTableView.addGestureRecognizer(tapgesture)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,19 +46,55 @@ class ProfileVC: UIViewController {
 
     }
     
-    // MARK: Private Functions
     
-    // Function for hiding keyboard
-    @objc private func hideKeyboard()
-    {
-        settingsTableView.endEditing(true)
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        
+        //Adding Oveserver To Notification Centre for notifying KeyboardDidAppear
+        
+        NotificationCenter.default.addObserver(forName: .UIKeyboardDidShow, object: nil, queue: OperationQueue.main, using: {(Notification) -> Void in
+        
+        guard let userinfo = Notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+            else{ return }
+        
+        let keyboardHeight = userinfo.cgRectValue.height
+            
+        
+        self.tableViewBottomConstraint.constant = keyboardHeight
+        
+       
+        })
+        
+        //Adding Oveserver To Notification Centre for notifying KeyboardWillHide
+
+        NotificationCenter.default.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: OperationQueue.main, using: {(Notification) -> Void in
+            
+            self.tableViewBottomConstraint.constant = 0
+            
+        })
+        
+        
+        
+        
     }
     
     
-
-   
-
-   
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        //Removing Observer From Notification Centre
+        
+        NotificationCenter.default.removeObserver(self)
+        
+    }
+    
+    
+    
+    // MARK: Private Functions
+  
 }
 
 // MARK: DataSource and Delegate
@@ -114,18 +147,25 @@ extension ProfileVC : UITableViewDataSource,UITableViewDelegate{
         }
        
     }
-  
-        func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath){
-            if ((indexPath.row != 0) && (indexPath.row != dataDict.count+1))
-            {
-                let cell = tableView.cellForRow(at: indexPath) as! ListCell
-                
-                dataDict[indexPath.row-1]["Info"] = cell.infoText.text
-            }
-        }
-        
+
 
 }
+
+extension ProfileVC : UITextFieldDelegate{
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        print("hii")
+        
+    }
+    
+    
+    
+}
+
+
+
 
 class HeadingCell : UITableViewCell {
     

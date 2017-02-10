@@ -21,11 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="188" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xIU-3x-4KY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="188" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xIU-3x-4KY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.26247830100000002" green="0.62802910469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="27.5" minY="0.0" maxX="27.5" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeadingCellID" rowHeight="276" id="zvl-TV-vxI" customClass="HeadingCell" customModule="ProfileSettings2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="276"/>
@@ -35,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="johnsmith" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-WV-F7k">
-                                                    <rect key="frame" x="133" y="100" width="108" height="108"/>
+                                                    <rect key="frame" x="133.5" y="100" width="108" height="108"/>
                                                     <color key="backgroundColor" red="1" green="0.80094423969999995" blue="0.46017892589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="108" id="F2n-Ki-sE7"/>
@@ -43,7 +42,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsz-p5-mKF">
-                                                    <rect key="frame" x="211" y="100" width="30" height="30"/>
+                                                    <rect key="frame" x="211.5" y="100" width="30" height="30"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="mXH-X0-ALT"/>
@@ -77,7 +76,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIk-8f-UA4">
-                                                    <rect key="frame" x="52.5" y="40" width="269" height="51"/>
+                                                    <rect key="frame" x="53" y="40" width="269" height="51"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="269" id="SBZ-hM-PJQ"/>
@@ -119,12 +118,12 @@
                             </navigationBar>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="TBA-A1-PdY" firstAttribute="top" secondItem="BFg-Wc-EPr" secondAttribute="bottom" constant="-20" id="3oo-6P-upb"/>
                             <constraint firstItem="TBA-A1-PdY" firstAttribute="centerX" secondItem="hYe-95-65J" secondAttribute="centerX" id="AW9-A9-bvM"/>
-                            <constraint firstItem="xIU-3x-4KY" firstAttribute="centerY" secondItem="hYe-95-65J" secondAttribute="centerY" id="C0l-sH-eKe"/>
-                            <constraint firstItem="xIU-3x-4KY" firstAttribute="width" secondItem="hYe-95-65J" secondAttribute="width" id="K2F-A2-EVS"/>
-                            <constraint firstItem="xIU-3x-4KY" firstAttribute="height" secondItem="hYe-95-65J" secondAttribute="height" id="VG9-mt-jNf"/>
-                            <constraint firstItem="xIU-3x-4KY" firstAttribute="centerX" secondItem="hYe-95-65J" secondAttribute="centerX" id="Zm9-Yi-qo1"/>
+                            <constraint firstItem="bBR-HX-jfP" firstAttribute="top" secondItem="xIU-3x-4KY" secondAttribute="bottom" id="Uks-vg-RYX"/>
+                            <constraint firstItem="xIU-3x-4KY" firstAttribute="leading" secondItem="hYe-95-65J" secondAttribute="leading" id="jdk-Xm-dQt"/>
+                            <constraint firstAttribute="trailing" secondItem="xIU-3x-4KY" secondAttribute="trailing" id="kiG-m1-yGo"/>
+                            <constraint firstItem="TBA-A1-PdY" firstAttribute="top" secondItem="xIU-3x-4KY" secondAttribute="top" id="mAt-FI-oGU"/>
+                            <constraint firstItem="xIU-3x-4KY" firstAttribute="top" secondItem="BFg-Wc-EPr" secondAttribute="bottom" constant="-20" id="vCa-K4-nid"/>
                             <constraint firstItem="TBA-A1-PdY" firstAttribute="width" secondItem="hYe-95-65J" secondAttribute="width" id="zuH-np-beg"/>
                         </constraints>
                     </view>
@@ -133,6 +132,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="settingsTableView" destination="xIU-3x-4KY" id="xdR-Pn-eBa"/>
+                        <outlet property="tableViewBottomConstraint" destination="Uks-vg-RYX" id="HS5-64-Elo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DL-XX-Po4" userLabel="First Responder" sceneMemberID="firstResponder"/>
